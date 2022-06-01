@@ -26,14 +26,14 @@ addform.addEventListener('submit',e => {
 });
 
 ul.addEventListener('click', e => {
-    if(e.target.classList.toLowerCase().contains('delete')){
+    if(e.target.classList.contains('delete')){
         e.target.parentElement.remove();
     }
 });
 
 const filterTodos = term => {
     Array.from(ul.children)
-         .filter((t) => !t.textContent.includes(term))
+         .filter((t) => !t.textContent.toUpperCase().includes(term))
          .forEach((t) => t.classList.add('filtered'));
 
     Array.from(ul.children)
